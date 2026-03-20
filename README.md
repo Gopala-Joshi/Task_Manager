@@ -1,36 +1,136 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Clipboard Task Manager
 
-## Getting Started
+A visually interactive task management web application built with Next.js, featuring a clipboard-inspired UI, smooth animations, and full CRUD functionality.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Overview
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This project reimagines a task manager as a physical clipboard experience. Tasks are written directly onto a paper-like surface, completed with a scratch effect, and managed through an intuitive and minimal interface.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The focus is on blending functionality with design, creating a system that feels tactile and immersive rather than purely digital.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+* Create tasks using a minimal input interface
+* View tasks rendered directly on a clipboard-style layout
+* Mark tasks as completed with a scratch animation
+* Delete tasks with hover-based interaction
+* Smooth parallax movement based on cursor position
+* Custom pencil-style cursor
+* Scrollable task list for handling multiple items
+* Real-time UI updates
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Tech Stack
 
-## Deploy on Vercel
+Frontend:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* Next.js (App Router)
+* TypeScript
+* Tailwind CSS
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Animations:
+
+* GSAP (GreenSock Animation Platform)
+
+Backend:
+
+* Next.js API Routes
+
+---
+
+## API Endpoints
+
+GET /api/tasks
+Fetch all tasks
+
+POST /api/tasks
+Create a new task
+
+Request body:
+{
+"title": "Task title"
+}
+
+PUT /api/tasks
+Update task status
+
+Request body:
+{
+"id": number,
+"status": "pending" | "completed"
+}
+
+DELETE /api/tasks
+Delete a task
+
+Request body:
+{
+"id": number
+}
+
+---
+
+## Data Model
+
+Each task follows this structure:
+
+{
+"id": number,
+"title": string,
+"status": "pending" | "completed"
+}
+
+---
+
+## Key Design Concepts
+
+* Clipboard Metaphor: Tasks are displayed as if written on paper
+* Physical Interaction: Completion uses a scratch animation instead of a checkbox
+* Minimal UI: Reduced clutter to focus on interaction
+* Motion Design: Subtle parallax and cursor movement enhance depth
+* Cursor as Tool: Custom cursor replaces default pointer for a more immersive experience
+
+---
+
+## Setup Instructions
+
+1. Install dependencies:
+   npm install
+
+2. Run development server:
+   npm run dev
+
+3. Open in browser:
+   http://localhost:3000
+
+---
+
+## Deployment
+
+Live Application:
+https://task-manager-five-delta-35.vercel.app
+
+GitHub Repository:
+https://github.com/Gopala-Joshi/Task_Manager
+
+---
+
+## Notes
+
+* Data is stored in memory (temporary storage)
+* Data resets on server restart
+* Designed as a functional and design-focused project
+
+---
+
+## Future Improvements
+
+* Persistent database integration
+* Sound feedback for interactions
+
+---
